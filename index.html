@@ -11,51 +11,50 @@
 
 <body ng-app="tipApp" ng-controller="tipController">
 
-    <form name="stockForm" ng-submit="submitLabel()">
-        <div class="form-group">
-            <input type="text" name="name" id="name" placeholder="Type uid" class="form-control" ng-model="stock_label" required autofocus>
-            <button type="submit" class="btn btn-success">Submit Label</button>
-    </form>
-
-
-    <div class="container">
-        <div class="row text-center">
-            <div class="col-lg-12 col-md-12 col-sm-12 tipCard" ng-repeat="single in singleStock">
-                <div class="card">
-                    <div class="mainCard">
-                        <button type="button" class="btn btn-info" style="background-color: #a55;" ng-click="alertUid($index)">{{single.uid}}</button>
-                        <div class="textCard" ng-click="alertIndex($index)">
-                            <h4 style="text-color: white">{{single.ticker}}</h4>
-                            <p style="color: white">{{single.label}}</p>
-                            <p style="color: white">{{single.value}}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <hr>
+    
     <div>
         <button type="submit" class="btn btn-success" ng-click="getStocks()">Get Results</button>
     </div>
 
     <div class="container">
         <div class="row text-center">
-            <div class="col-lg-12 col-md-12 col-sm-12 tipCard" ng-repeat="stock in allStocks">
-                <div class="card">
-                    <div class="mainCard">
+            <div class="col-lg-12 col-md-12 col-sm-12" ng-repeat="stock in allStocks | orderBy : 'value' ">
+                <div class="myCanvas">
+
                         <button type="button" class="btn btn-info" style="background-color: #a55;" ng-click="alertUid($index)">{{stock.uid}}</button>
                         <div class="textCard" ng-click="alertIndex($index)">
                             <h4 style="text-color: white">{{stock.ticker}}</h4>
                             <p style="color: white">{{stock.label}}</p>
                             <p style="color: white">{{stock.value}}</p>
                         </div>
-                    </div>
+
                 </div>
             </div>
         </div>
     </div>
+
+    <form name="stockForm" ng-submit="submitLabel()">
+        <div class="form-group">
+            <input type="text" name="name" id="name" placeholder="Macy's Inc (ticker is null)" class="form-control" ng-model="stock_label" required autofocus>
+            <button type="submit" class="btn btn-success">Submit Label</button>
+    </form>
+
+
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-12 col-md-12 col-sm-12" ng-repeat="single in singleStock">
+                <div class="myCanvas">
+                        <button type="button" class="btn btn-info" style="background-color: #a55;" ng-click="alertUid($index)">{{single.uid}}</button>
+                        <div class="textCard" ng-click="alertIndex($index)">
+                            <h4 style="text-color: white">{{single.ticker}}</h4>
+                            <p style="color: white">{{single.label}}</p>
+                            <p style="color: white">{{single.value}}</p>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- /.row -->
 
     <script src="node_modules/angular/angular.js"></script>

@@ -1,4 +1,17 @@
-.tipCard{
+/*.tipCard{
+width: 250px;
+height: 100px;
+border: solid 4px;
+background-color: #558;
+margin-top: 10px;
+margin-bottom: 10px;
+}*/
+
+.myCanvas:hover { 
+    background-color: palegreen;
+}
+
+.myCanvas {
 width: 250px;
 height: 100px;
 border: solid 4px;
@@ -7,6 +20,7 @@ margin-top: 10px;
 margin-bottom: 10px;
 }
 
-.mainCard:hover { 
-    background-color: yellow;
+.btn{
+    white-space:normal !important;
+    word-wrap:break-word; 
 }
